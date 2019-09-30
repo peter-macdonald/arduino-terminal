@@ -194,9 +194,9 @@ void Terminal::_parseLine(String command_string){
 }
 
 //**********************************************************************************
-void Terminal::begin(int baud) {
+void Terminal::begin(int baud, bool block) {
     Serial.begin(baud);
-    while (!Serial);
+    while (block && !Serial);
 
     Serial.print("Starting "); Serial.println(_name);
 }
